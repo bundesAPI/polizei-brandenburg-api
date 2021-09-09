@@ -1,34 +1,351 @@
 openapi: "3.0.0"
 info:
-  description: "API Description"
+  description: "Polizei Brandenburg Nachrichten, Hochwasser-, Verkehrs- und Waldbrandwarnungen"
   version: "1.0.0"
-  title: "Amtsname: API Name"
+  title: "Polizei Brandenburg: App"
 
 servers:
-  - url: "https://warnung.bund.de/api31"
+  - url: "https://polizei.brandenburg.de/ipa_api/"
 
 paths:
-  /dashboard/{AGS}.json:
+  /pegel/version/1:
     get:
-      summary: Name des Endpoints
+      summary: Pegelstände
       responses:
         '200':
             description: OK
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/Result'
+                  $ref: '#/components/schemas/Pegel'
+
+
+  /news/version/1:
+    get:
+      summary: Nachrichten, Suchmeldungen der Polzei Brandenburg
+      responses:
+        '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/News'
+                  
       parameters:
-        - in: path
-          required: true
-          name: AGS
+        - in: query
+          required: false
+          name: count
           schema:
-            type: string
-          description: Amtlicher Gebietsschlüssel - kann z.B. von [hier](https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2021-07-31/download/Regionalschl_ssel_2021-07-31.json) bezogen werden. Die Letzten 7 Stellen müssen dabei mit "0000000" ersetzt werden, weil die Daten nur auf [Kreisebene](https://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel) bereitgestellt werden. 
-          example: 091620000000
+            type: integer
+          description: "Number of results"
+          example: 5000
+          
+        - in: query
+          required: false
+          name: category
+          schema:
+            type: integer
+          description: "category id"
+          example: 8
+        
+        - in: query
+          required: false
+          name: district
+          schema:
+            type: integer
+          description: "district id"
+          example: 500
+
+  /reviere/version/1:
+    get:
+      summary: Liste aller Reviere der Polzei Brandenburg
+      responses:
+        '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Reviere'
+                  
+
+
+  /vwd/version/1:
+    get:
+      summary: Verkehrswarnungen der Polzei Brandenburg
+      responses:
+        '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Verkehr'
+                  
+                  
+
+
+  /waldbrand/version/1:
+    get:
+      summary: Waldbrandwarnungen Brandenburg
+      responses:
+        '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Waldbrand'
+                  
 
           
 components: 
     schemas:
-      Result:
-        type: string
+      Waldbrand:
+        type: object
+        properties:
+          timestamp: 
+            type: integer
+            format: int32
+            example: 1631194541
+          version: 
+            type: integer
+            format: int32
+            example: 1
+          interface: 
+            type: string
+            example: waldbrand
+          data: 
+            type: array
+            items: 
+              type: object
+              properties: 
+                timestamp: 
+                  type: integer
+                  format: int32
+                  example: 1631194541
+                district: 
+                  type: integer
+                  format: int32
+                  example: 6
+                level: 
+                  type: integer
+                  format: int32
+                  example: 3
+                waldbrand-kreis: 
+                  type: string
+                  example: Barnim
+                gemappter-cms-kreis: 
+                  type: string
+                  example: Barnim
+                source: 
+                  type: string
+                  example: "Quelle: Ministerium für Infrastruktur und Landwirtschaft des Landes Brandenburg"
+
+      Verkehr:
+        type: object
+        properties:
+            timestamp: 
+              type: integer
+              format: int32
+              example: 1631195701
+            version: 
+              type: integer
+              format: int32
+              example: 1
+            interface: 
+              type: string
+              example: vwd
+            data: 
+              type: array
+              items: 
+                type: object
+                properties: 
+                  timestamp: 
+                    type: integer
+                    format: int32
+                    example: 1631105498
+                  road-name: 
+                    type: string
+                    example: 
+                  road-description: 
+                    type: string
+                    example: A9 Berlin Richtung Halle/Leipzig
+                  road-type: 
+                    type: integer
+                    format: int32
+                    example: 0
+                  warning-type: 
+                    type: integer
+                    format: int32
+                    example: 1
+                  lat: 
+                    type: string
+                    example: 52.09529
+                  long: 
+                    type: string
+                    example: 12.68999
+                  text: 
+                    type: string
+                    example: "A9 Berlin Richtung Halle/Leipzig Ausfahrt Niemegk Bauarbeiten Vollsperrung"
+                  state: 
+                    type: string
+                    example: Brandenburg
+                  source: 
+                    type: string
+                    example: "Quelle: Landesmeldestelle Berlin/Brandenburg."
+
+      Reviere:
+        type: object
+        properties:
+          timestamp: 
+              type: integer
+              format: int32
+              example: 1631196743
+          version: 
+            type: integer
+            format: int32
+            example: 1
+          interface: 
+            type: string
+            example: reviere
+          data: 
+            type: array
+            items: 
+              type: object
+              properties: 
+                id: 
+                  type: string
+                  example: 66566
+                name: 
+                  type: string
+                  example: Pritzwalk Polizeirevier
+                openinghours: 
+                  type: string
+                  example: "Montag Mittwoch und Freitag (außer an Feiertagen) 08:00 – 16:00 Uhr Dienstag und Donnerstag (außer an Feiertagen) 08:00 – 18:00 Uhr"
+                open24h: 
+                  type: string
+                  example: false
+                phone: 
+                  type: string
+                  example: 03395 753-0
+                fax: 
+                  type: string
+                  example: 03395 753-1229
+                address1: 
+                  type: string
+                  example: Bahnhofstraße 1
+                address2: 
+                  type: string
+                  example: 16928 Pritzwalk
+                lat: 
+                  type: string
+                  example: 53.1460245
+                long: 
+                  type: string
+                  example: 12.1807059
+                text: 
+                  type: string
+                  example: 
+                thumbnail: 
+                  type: string
+                  example: /files/images/thumb_small/64530/revier_pritzwalk_%25C3%25BCbergabe_30_11_2012_%252801%2529.jpg
+                image: 
+                  type: string
+                  example: /files/images/full/64530/revier_pritzwalk_%25C3%25BCbergabe_30_11_2012_%252801%2529.jpg
+                urlchildren: 
+                  type: string
+                  example: https://polizei.brandenburg.de/standorte_und_erreichbarkeiten/1/66566
+      News:
+        type: object
+        properties: 
+          timestamp: 
+            type: integer
+            format: int32
+            example: 1631196578
+          version: 
+            type: integer
+            format: int32
+            example: 1
+          interface: 
+            type: string
+            example: news
+          data: 
+            type: array
+            items: 
+              type: object
+              properties: 
+                district: 
+                  type: string
+                  example: 101
+                timestamp: 
+                  type: integer
+                  format: int32
+                  example: 1631191740
+                category: 
+                  type: string
+                  example: 2
+                url: 
+                  type: string
+                  example: /pressemeldung/tatverdaechtigen-gestellt/2773727
+                title: 
+                  type: string
+                  example: Tatverdächtigen gestellt
+                text: 
+                  type: string
+                  example: "Nach einem Kabeldiebstahl an einer Bahntrasse am Mittwochmorgen im Bereich der Ebertusstraße suchten Landes- und Bundespolizisten gemeinsam nach flüchtigen Tatverdächtigen. Eine Streifenbesatzung des Polizeireviers Frankfurt (Oder) bewies dann ein gutes Gespür und konnte einen 28-Jährigen Polen in der Rosa-Luxemburg-Straße stellen. Wie sich herausstellte war der Mann bereits hinreichend polizeibekannt und bereits zur Festnahme ausgeschrieben. Der Beschuldigte wurde an die zuständige Bundespolizei übergeben."
+                thumbnail: 
+                  type: boolean
+                images: 
+                  type: string
+                  format: nullable
+                e_ort: 
+                  type: string
+                  example: Frankfurt (Oder)  
+
+      Pegel:
+        type: object
+        properties:
+          timestamp: 
+            type: integer
+            format: int32
+            example: 1631196277
+          version: 
+            type: integer
+            format: int32
+            example: 1
+          interface: 
+            type: string
+            example: pegel
+          data: 
+            type: array
+            items: 
+              type: object
+              properties: 
+                timestamp: 
+                  type: integer
+                  format: int32
+                  example: 1631196000
+                name: 
+                  type: string
+                  example: FUERSTENWALDE OP
+                waters: 
+                  type: string
+                  example: SPREE-ODER-WASSERSTRASSE
+                tendency: 
+                  type: integer
+                  format: int32
+                  example: 1
+                gauge: 
+                  type: integer
+                  format: int32
+                  example: 157
+                state: 
+                  type: string
+                  example: Brandenburg
+                lat: 
+                  type: number
+                  example: 52.3542597796
+                long: 
+                  type: number
+                  example: 14.0665284857
+                source: 
+                  type: string
+                  example: "Quelle: Wasser- und Schifffahrts- verwaltung des Bundes (WSV)"
