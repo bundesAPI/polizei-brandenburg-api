@@ -17,7 +17,7 @@
                 dom_id: "#openapi",
                requestInterceptor: function(req) {   
                     var mapping = {
-                        "https://polizei.brandenburg.de/ipa_api/": "https://polizei.brandenburg.api.proxy.bund.dev/ipa_api/"
+                        "polizei.brandenburg.de": "polizei.brandenburg.api.proxy.bund.dev"
                     }
                     if(this.url !== "openapi.yaml") {
                        var url = new URL(req.url);
