@@ -1,8 +1,8 @@
 openapi: "3.0.0"
 info:
-  description: "Polizei Brandenburg Nachrichten, Hochwasser-, Verkehrs- und Waldbrandwarnungen"
+  description: "Nachrichten, Hochwasser-, Verkehrs- und Waldbrandwarnungen der Polizei Brandenburg"
   version: "1.0.0"
-  title: "Polizei Brandenburg: App"
+  title: "Polizei Brandenburg API"
 
 servers:
   - url: "https://polizei.brandenburg.de/ipa_api/"
