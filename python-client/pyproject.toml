@@ -2,7 +2,7 @@
 [tool.poetry]
 name = "de-polizei-brandenburg"
 version = "0.1.0"
-description = "Polizei Brandenburg: App"
+description = "Polizei Brandenburg API"
 keywords = ["OpenAPI", "OpenAPI-Generator", "polizei-brandenburg", "App", "API"]
 homepage = "https://github.com/bundesAPI/polizei-brandenburg-api"
 authors = ["BundesAPI <kontakt@bund.dev>"]

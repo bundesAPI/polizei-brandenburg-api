@@ -1,7 +1,7 @@
 """
-    Polizei Brandenburg: App
+    Polizei Brandenburg API
 
-    Polizei Brandenburg Nachrichten, Hochwasser-, Verkehrs- und Waldbrandwarnungen  # noqa: E501
+    Nachrichten, Hochwasser-, Verkehrs- und Waldbrandwarnungen der Polizei Brandenburg  # noqa: E501
 
     The version of the OpenAPI document: 1.0.0
     Contact: kontakt@bund.dev
