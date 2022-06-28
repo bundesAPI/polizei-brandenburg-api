@@ -68,8 +68,8 @@ with polizei_brandenburg.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = default_api.DefaultApi(api_client)
     count = 5000 # int | Number of results (optional)
-category = 8 # int | category id (optional)
-district = 500 # int | district id (optional)
+    category = 8 # int | category id (optional)
+    district = 500 # int | district id (optional)
 
     try:
         # Nachrichten, Suchmeldungen der Polzei Brandenburg
@@ -95,15 +95,15 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [News](docs/News.md)
- - [NewsData](docs/NewsData.md)
+ - [NewsDataInner](docs/NewsDataInner.md)
  - [Pegel](docs/Pegel.md)
- - [PegelData](docs/PegelData.md)
+ - [PegelDataInner](docs/PegelDataInner.md)
  - [Reviere](docs/Reviere.md)
- - [ReviereData](docs/ReviereData.md)
+ - [ReviereDataInner](docs/ReviereDataInner.md)
  - [Verkehr](docs/Verkehr.md)
- - [VerkehrData](docs/VerkehrData.md)
+ - [VerkehrDataInner](docs/VerkehrDataInner.md)
  - [Waldbrand](docs/Waldbrand.md)
- - [WaldbrandData](docs/WaldbrandData.md)
+ - [WaldbrandDataInner](docs/WaldbrandDataInner.md)
 
 
 ## Documentation For Authorization

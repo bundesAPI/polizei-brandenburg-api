@@ -31,9 +31,9 @@ from deutschland.polizei_brandenburg.model_utils import (  # noqa: F401
 
 
 def lazy_import():
-    from deutschland.polizei_brandenburg.model.pegel_data import PegelData
+    from deutschland.polizei_brandenburg.model.pegel_data_inner import PegelDataInner
 
-    globals()["PegelData"] = PegelData
+    globals()["PegelDataInner"] = PegelDataInner
 
 
 class Pegel(ModelNormal):
@@ -100,7 +100,7 @@ class Pegel(ModelNormal):
             "timestamp": (int,),  # noqa: E501
             "version": (int,),  # noqa: E501
             "interface": (str,),  # noqa: E501
-            "data": ([PegelData],),  # noqa: E501
+            "data": ([PegelDataInner],),  # noqa: E501
         }
 
     @cached_property
@@ -157,11 +157,11 @@ class Pegel(ModelNormal):
             timestamp (int): [optional]  # noqa: E501
             version (int): [optional]  # noqa: E501
             interface (str): [optional]  # noqa: E501
-            data ([PegelData]): [optional]  # noqa: E501
+            data ([PegelDataInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)
-        _spec_property_naming = kwargs.pop("_spec_property_naming", False)
+        _spec_property_naming = kwargs.pop("_spec_property_naming", True)
         _path_to_item = kwargs.pop("_path_to_item", ())
         _configuration = kwargs.pop("_configuration", None)
         _visited_composed_classes = kwargs.pop("_visited_composed_classes", ())
@@ -169,15 +169,19 @@ class Pegel(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments."
-                % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments."
+                        % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -247,7 +251,7 @@ class Pegel(ModelNormal):
             timestamp (int): [optional]  # noqa: E501
             version (int): [optional]  # noqa: E501
             interface (str): [optional]  # noqa: E501
-            data ([PegelData]): [optional]  # noqa: E501
+            data ([PegelDataInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)
@@ -257,15 +261,19 @@ class Pegel(ModelNormal):
         _visited_composed_classes = kwargs.pop("_visited_composed_classes", ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments."
-                % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments."
+                        % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

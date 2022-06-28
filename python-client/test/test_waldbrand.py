@@ -12,11 +12,13 @@
 import sys
 import unittest
 
-from deutschland.polizei_brandenburg.model.waldbrand_data import WaldbrandData
+from deutschland.polizei_brandenburg.model.waldbrand_data_inner import (
+    WaldbrandDataInner,
+)
 
 from deutschland import polizei_brandenburg
 
-globals()["WaldbrandData"] = WaldbrandData
+globals()["WaldbrandDataInner"] = WaldbrandDataInner
 from deutschland.polizei_brandenburg.model.waldbrand import Waldbrand
 
 

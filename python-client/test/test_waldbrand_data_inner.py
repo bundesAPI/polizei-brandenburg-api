@@ -12,13 +12,15 @@
 import sys
 import unittest
 
-from deutschland.polizei_brandenburg.model.waldbrand_data import WaldbrandData
+from deutschland.polizei_brandenburg.model.waldbrand_data_inner import (
+    WaldbrandDataInner,
+)
 
 from deutschland import polizei_brandenburg
 
 
-class TestWaldbrandData(unittest.TestCase):
-    """WaldbrandData unit test stubs"""
+class TestWaldbrandDataInner(unittest.TestCase):
+    """WaldbrandDataInner unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,10 +28,10 @@ class TestWaldbrandData(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testWaldbrandData(self):
-        """Test WaldbrandData"""
+    def testWaldbrandDataInner(self):
+        """Test WaldbrandDataInner"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = WaldbrandData()  # noqa: E501
+        # model = WaldbrandDataInner()  # noqa: E501
         pass
 
 

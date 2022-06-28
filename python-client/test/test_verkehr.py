@@ -12,11 +12,11 @@
 import sys
 import unittest
 
-from deutschland.polizei_brandenburg.model.verkehr_data import VerkehrData
+from deutschland.polizei_brandenburg.model.verkehr_data_inner import VerkehrDataInner
 
 from deutschland import polizei_brandenburg
 
-globals()["VerkehrData"] = VerkehrData
+globals()["VerkehrDataInner"] = VerkehrDataInner
 from deutschland.polizei_brandenburg.model.verkehr import Verkehr
 
 

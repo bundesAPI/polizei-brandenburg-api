@@ -12,11 +12,11 @@
 import sys
 import unittest
 
-from deutschland.polizei_brandenburg.model.reviere_data import ReviereData
+from deutschland.polizei_brandenburg.model.reviere_data_inner import ReviereDataInner
 
 from deutschland import polizei_brandenburg
 
-globals()["ReviereData"] = ReviereData
+globals()["ReviereDataInner"] = ReviereDataInner
 from deutschland.polizei_brandenburg.model.reviere import Reviere
 
 

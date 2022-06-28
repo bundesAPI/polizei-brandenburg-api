@@ -12,11 +12,11 @@
 import sys
 import unittest
 
-from deutschland.polizei_brandenburg.model.news_data import NewsData
+from deutschland.polizei_brandenburg.model.news_data_inner import NewsDataInner
 
 from deutschland import polizei_brandenburg
 
-globals()["NewsData"] = NewsData
+globals()["NewsDataInner"] = NewsDataInner
 from deutschland.polizei_brandenburg.model.news import News
 
 

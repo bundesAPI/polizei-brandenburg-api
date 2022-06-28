@@ -12,10 +12,10 @@ polizei\_brandenburg.model.news module
    :undoc-members:
    :show-inheritance:
 
-polizei\_brandenburg.model.news\_data module
---------------------------------------------
+polizei\_brandenburg.model.news\_data\_inner module
+---------------------------------------------------
 
-.. automodule:: polizei_brandenburg.model.news_data
+.. automodule:: polizei_brandenburg.model.news_data_inner
    :members:
    :undoc-members:
    :show-inheritance:
@@ -28,10 +28,10 @@ polizei\_brandenburg.model.pegel module
    :undoc-members:
    :show-inheritance:
 
-polizei\_brandenburg.model.pegel\_data module
----------------------------------------------
+polizei\_brandenburg.model.pegel\_data\_inner module
+----------------------------------------------------
 
-.. automodule:: polizei_brandenburg.model.pegel_data
+.. automodule:: polizei_brandenburg.model.pegel_data_inner
    :members:
    :undoc-members:
    :show-inheritance:
@@ -44,10 +44,10 @@ polizei\_brandenburg.model.reviere module
    :undoc-members:
    :show-inheritance:
 
-polizei\_brandenburg.model.reviere\_data module
------------------------------------------------
+polizei\_brandenburg.model.reviere\_data\_inner module
+------------------------------------------------------
 
-.. automodule:: polizei_brandenburg.model.reviere_data
+.. automodule:: polizei_brandenburg.model.reviere_data_inner
    :members:
    :undoc-members:
    :show-inheritance:
@@ -60,10 +60,10 @@ polizei\_brandenburg.model.verkehr module
    :undoc-members:
    :show-inheritance:
 
-polizei\_brandenburg.model.verkehr\_data module
------------------------------------------------
+polizei\_brandenburg.model.verkehr\_data\_inner module
+------------------------------------------------------
 
-.. automodule:: polizei_brandenburg.model.verkehr_data
+.. automodule:: polizei_brandenburg.model.verkehr_data_inner
    :members:
    :undoc-members:
    :show-inheritance:
@@ -76,10 +76,10 @@ polizei\_brandenburg.model.waldbrand module
    :undoc-members:
    :show-inheritance:
 
-polizei\_brandenburg.model.waldbrand\_data module
--------------------------------------------------
+polizei\_brandenburg.model.waldbrand\_data\_inner module
+--------------------------------------------------------
 
-.. automodule:: polizei_brandenburg.model.waldbrand_data
+.. automodule:: polizei_brandenburg.model.waldbrand_data_inner
    :members:
    :undoc-members:
    :show-inheritance:

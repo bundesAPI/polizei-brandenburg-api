@@ -12,11 +12,11 @@
 import sys
 import unittest
 
-from deutschland.polizei_brandenburg.model.pegel_data import PegelData
+from deutschland.polizei_brandenburg.model.pegel_data_inner import PegelDataInner
 
 from deutschland import polizei_brandenburg
 
-globals()["PegelData"] = PegelData
+globals()["PegelDataInner"] = PegelDataInner
 from deutschland.polizei_brandenburg.model.pegel import Pegel
 
 

@@ -12,13 +12,13 @@
 import sys
 import unittest
 
-from deutschland.polizei_brandenburg.model.reviere_data import ReviereData
+from deutschland.polizei_brandenburg.model.news_data_inner import NewsDataInner
 
 from deutschland import polizei_brandenburg
 
 
-class TestReviereData(unittest.TestCase):
-    """ReviereData unit test stubs"""
+class TestNewsDataInner(unittest.TestCase):
+    """NewsDataInner unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,10 +26,10 @@ class TestReviereData(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testReviereData(self):
-        """Test ReviereData"""
+    def testNewsDataInner(self):
+        """Test NewsDataInner"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ReviereData()  # noqa: E501
+        # model = NewsDataInner()  # noqa: E501
         pass
 
 
